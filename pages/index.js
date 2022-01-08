@@ -6,7 +6,7 @@ export default function sparrow() {
       <div id="cover">
         <div className="center">
           <h4 id="t">Todd Huyett</h4>
-          <h4>Code Assessment</h4>
+          <h4 id="code">Code Assessment</h4>
           <div id="project">
             <Link href="/problem2"><a >Project 2</a></Link>
           </div>
@@ -26,12 +26,15 @@ export default function sparrow() {
       </div>
 
       <style jsx>{`
- 
+ #code {
+   font-size: 20px;
+   margin-top: -4px;
+ }
         h4 {
         margin: 0;
         padding: 0;
-          font-size: 20px;
-          color: black;
+          font-size: 22px;
+          color: #4;
         }
         #t {
           margin-bottom: -4px;
@@ -57,7 +60,7 @@ export default function sparrow() {
         }
         a {
         
-          font-size: 15px;
+          font-size: 17px;
           padding: 4px;
           color: #303058;
         }
@@ -69,6 +72,7 @@ export default function sparrow() {
         .center {
           position: fixed;
           text-align: center;
+          margin-top: -80px;
         
       
           top: 50%;
@@ -80,9 +84,12 @@ export default function sparrow() {
           h4 {
         margin: 0;
         padding: 0;
-          font-size: 16px;
+          font-size: 18px;
           color: black;
         }
+        #code {
+   font-size: 16px;
+ }
         a {
         
         font-size: 15px;
