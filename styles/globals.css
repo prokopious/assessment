@@ -1,0 +1,21 @@
+@import url(//db.onlinewebfonts.com/c/37b29158c68de167677fa4a3087d7188?family=Tiempos+Text+Regular);
+
+html,
+body {
+
+  padding: 0;
+  margin: 0;
+  background-color: #F7F6E7 ;
+  font-family: 'Tiempos Text Regular';
+}
+div {
+
+}
+
+p {
+  color: rgb(63, 63, 63);
+}
+
+* {
+  box-sizing: border-box;
+}
