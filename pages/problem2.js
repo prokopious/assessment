@@ -21,26 +21,27 @@ export default function Problem2({ people, donations }) {
             </a>
           </div>
           <p>
-            This project consists of a MSSQL Server deployed on AWS RDS. The
+            This project consists of a MsSQL Server deployed on AWS RDS. The
             data is fetched from a Node.js REST API{" "}
             <a href="https://github.com/prokopious/rds/blob/main/app.js">
               (see the code here)
             </a>{" "}
             deployed on Heroku, which makes SQL queries on behalf of the client.
-            I connected to my database instance using MSSQL Server Management
-            Studio (and built the database itself using SQL commands). Due to
-            the large number of people (over 1,000,000) in the database, I opted
-            for server-side rendering as opposed to static rendering, which
-            keeps users of the data up to date in the event of a change. The
-            database itself is otherwise auto-scaling. I chose to use
-            one-to-many relationships for donations, phone numbers, and
-            addresses. I did so to retain flexibility (there could well be a
-            person with 10 mobile numbers). The same is true of the donations.
-            Below is a donor list with a brief summary for each person. Click on
-            a name to see more details. You will be taken to a dynamically
-            generated page.
+            Please refer to the provided server-side code (app.js) to see those
+            queries. I only exposed two GET endpoints, but it could easily be
+            expanded. I connected to my database instance using MSSQL Server
+            Management Studio (and built the database itself using SQL
+            commands). Due to the large number of people (over 1,000,000) in the
+            database, I opted for server-side rendering as opposed to static
+            rendering, which keeps users up to date in the event of a data
+            change. I chose to use one-to-many relationships for donations,
+            phone numbers, and addresses. I did so to retain flexibility (there
+            could well be a person with 10 mobile numbers) and efficiency. The
+            same is true of the donations. Below is a donor list with a brief
+            summary for each person. Click on a name to see more details. You
+            will be taken to a dynamically generated page.
           </p>
-      
+
           <h3>Donor List</h3>
           {people.map((person, i) => {
             const sorted = donations.sort((a, b) =>
@@ -90,16 +91,26 @@ export default function Problem2({ people, donations }) {
             color: black;
           }
           div {
-          padding: 1px;
-        }
+            padding: 1px;
+          }
           #box {
-     
             padding: 50px;
-    
+            margin-left: auto;
+            margin-right: auto;
             height: 100vw;
-            mix-blend-mode: difference;
-            background-color: #f2f2ff;
-            mix-blend-mode: overlay;
+            max-width: 900px;
+          }
+          @media only screen and (max-width: 900px) {
+            #box {
+              padding: 20px;
+              height: 100vw;
+            }
+          }
+          @media only screen and (max-width: 700px) {
+            #box {
+              padding: 10px;
+              height: 100vw;
+            }
           }
         `}</style>
       </>

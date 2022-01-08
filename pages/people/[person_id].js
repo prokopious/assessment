@@ -20,10 +20,11 @@ export default function person({ person, phones, addresses, donations }) {
           <div>{person.ethnicity}</div>
         </div>
         <h3>Donations:</h3>
-        <div>{ JSON.stringify(donations) === `[]` ? "No donations to date" : ""}</div>
-        
-        {
-        donations.map((donation, i) => {
+        <div>
+          {JSON.stringify(donations) === `[]` ? "No donations to date" : ""}
+        </div>
+
+        {donations.map((donation, i) => {
           const index = donations.indexOf(donation) % 2
           console.log(index)
           return (
@@ -63,21 +64,20 @@ export default function person({ person, phones, addresses, donations }) {
         })}
         <style jsx>{`
           #box {
-           
-     
-          padding: 50px;
+            padding: 50px;
+            margin-left: auto;
+            margin-right: auto;
             height: 100vw;
+          max-width: 900px;
           }
-        div {
-          padding: 1px;
-        }
+          div {
+            padding: 1px;
+          }
           #addr {
             display: grid;
-         
             grid-template-columns: 100px 9fr;
           }
           a {
-       
             color: black;
           }
           #d {
@@ -92,11 +92,22 @@ export default function person({ person, phones, addresses, donations }) {
           .highlight {
             background-color: #fffcdd;
           }
+          @media only screen and (max-width: 900px) {
+            #box {
+            padding: 20px;
+            height: 100vw;
+          }
+          }
+          @media only screen and (max-width: 700px) {
+            #box {
+            padding: 10px;
+            height: 100vw;
+          }
+          }
         `}</style>
       </div>
     )
-  } 
-  else {
+  } else {
     return <>Loading...</>
   }
 }

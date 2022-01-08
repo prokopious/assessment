@@ -27,7 +27,7 @@ export default function sparrow() {
 
       <style jsx>{`
  #code {
-   font-size: 20px;
+   font-size: 22px;
    margin-top: -4px;
  }
         h4 {
@@ -72,7 +72,7 @@ export default function sparrow() {
         .center {
           position: fixed;
           text-align: center;
-          margin-top: -80px;
+          margin-top: -20px;
         
       
           top: 50%;
@@ -88,7 +88,7 @@ export default function sparrow() {
           color: black;
         }
         #code {
-   font-size: 16px;
+   font-size: 18px;
  }
         a {
         
