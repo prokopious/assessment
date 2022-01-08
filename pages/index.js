@@ -5,7 +5,8 @@ export default function sparrow() {
     <>
       <div id="cover">
         <div className="center">
-          <h4>Todd Huyett's Assessment</h4>
+          <h4 id="t">Todd Huyett</h4>
+          <h4>Code Assessment</h4>
           <div id="project">
             <Link href="/problem2"><a >Project 2</a></Link>
           </div>
@@ -17,7 +18,7 @@ export default function sparrow() {
               <a href="https://github.com/prokopious">Github</a>
             </div>
             <div id="project2">
-              <a href="https://www.toddhuyett.com/">Portfolio</a>
+              <a id="port" href="https://www.toddhuyett.com/">Portfolio</a>
             </div>
           
           </div>
@@ -25,28 +26,39 @@ export default function sparrow() {
       </div>
 
       <style jsx>{`
+ 
         h4 {
-          margin-bottom: 5px;
-          font-size: 24px;
+        margin: 0;
+        padding: 0;
+          font-size: 20px;
           color: black;
+        }
+        #t {
+          margin-bottom: -4px;
         }
         #project {
           display: inline-block;
-          padding: 4px;
+          padding: 3px;
     
-          font-size: 20;
+          font-size: 15;
        
         }
         #project2 {
           display: inline-block;
-          font-size: 18;
-   
+          font-size: 15;
+          padding-top: 0px;
           padding: 3px;
+     
+        }
+        #port {
+          padding-top: 0px;
+          margin-top: -10px;
+
         }
         a {
         
-          font-size: 19px;
-          padding: 5px;
+          font-size: 15px;
+          padding: 4px;
           color: #303058;
         }
         #cover {
@@ -64,6 +76,37 @@ export default function sparrow() {
           /* bring your own prefixes */
           transform: translate(-50%, -50%);
         }
+        @media only screen and (max-width: 900px) {
+          h4 {
+        margin: 0;
+        padding: 0;
+          font-size: 16px;
+          color: black;
+        }
+        a {
+        
+        font-size: 15px;
+        padding: 3px;
+        padding-top: 0px;
+        color: #303058;
+      }
+        #t {
+          margin-bottom: -2px;
+        }
+        #project {
+          display: inline-block;
+          padding: 3px;
+    
+          font-size: 15;
+       
+        }
+        #project2 {
+          display: inline-block;
+          font-size: 13;
+          margin-top: -5px;
+        
+        }
+      }
       `}</style>
     </>
   )
