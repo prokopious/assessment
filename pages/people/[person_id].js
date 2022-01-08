@@ -63,22 +63,28 @@ export default function person({ person, phones, addresses, donations }) {
         })}
         <style jsx>{`
           #box {
-            margin: 20px;
-            padding-top: 20px;
-            padding-left: 10px;
+           
+     
+          padding: 50px;
+            height: 100vw;
           }
+        div {
+          padding: 1px;
+        }
           #addr {
             display: grid;
+         
             grid-template-columns: 100px 9fr;
           }
           a {
-            text-decoration: none;
+       
+            color: black;
           }
           #d {
             margin-bottom: 5px;
           }
           .other {
-            background-color: #E7E7DB;
+            background-color: #f8f8f3;
           }
           #type {
             text-transform: uppercase;

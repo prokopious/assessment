@@ -41,7 +41,7 @@ export default function Problem2({ people, donations }) {
             generated page.
           </p>
       
-          <h2>Donor List</h2>
+          <h3>Donor List</h3>
           {people.map((person, i) => {
             const sorted = donations.sort((a, b) =>
               a.amount < b.amount ? 1 : -1
@@ -52,7 +52,7 @@ export default function Problem2({ people, donations }) {
 
             return (
               <>
-                <div key={i}>
+                <div className="list" key={i}>
                   <Link href={`/people/${person.person_id}`}>
                     <a>
                       <h4 id="name">{person.name}</h4>
@@ -77,20 +77,29 @@ export default function Problem2({ people, donations }) {
             padding-bottom: 0;
             margin-bottom: 0;
           }
+          .list {
+            padding-top: 0;
+          }
+          p {
+            color: black;
+          }
           #repo {
             font-size: 18px;
           }
           a {
             color: black;
           }
-
+          div {
+          padding: 1px;
+        }
           #box {
-            margin-left: 20px;
-            padding-top: 25px;
-            padding-left: 10px;
-            padding-right: 20px;
-            margin-top: 10px;
+     
+            padding: 50px;
+    
             height: 100vw;
+            mix-blend-mode: difference;
+            background-color: #f2f2ff;
+            mix-blend-mode: overlay;
           }
         `}</style>
       </>

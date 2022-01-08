@@ -38,7 +38,7 @@ export default function Home({ data }) {
           <div>
             <input
               type="text"
-              placeholder="Filter by title"
+              placeholder="filter by title.."
               onChange={e => filterPosts(e)}
             />
           </div>
@@ -64,7 +64,7 @@ export default function Home({ data }) {
               if (toggle == true) {
                 number = 10
               } else {
-                number = null
+                number = 50
               }
               if (i < number || number == null) {
                 let random = Math.floor(Math.random() * 1000)
@@ -101,38 +101,45 @@ export default function Home({ data }) {
       #author {
       margin-top: 0px;
         }
-        input {
-          border: none;
-          padding-top: 5px;
-        padding-bottom: 5px;
-        border-radius: 3px;
-        border: 2px solid hsla(251, 54%, 43%, 0);
-        color: gray;
-        background-color: #cacaff
-        padding-left: 10px;
-        padding-right: 10px;
-        box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.25),
-   -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
+        h3 {
+          margin-bottom: 16px;
         }
-        #toggler {
-          background-color: white;
+        input {
+
           border: 2px solid hsla(251, 54%, 43%, 0);
      
-          box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+          box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 10px;
         padding-right: 10px;
           border-radius: 3px;
-          margin-top: 10px; 
+          margin-top: 0px; 
         color: gray;
+        }
+        #toggler {
+          background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+          border: 2px solid hsla(251, 54%, 43%, 0);
+     mix-blend-mode: multiply;
+          box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
+   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+          border-radius: 3px;
+          margin-top: 30px; 
+        color: #60000b3;
+        width: 100px;
         }
         #grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           grid-gap: 10px;
-          margin-top: 30px;
+        
+          margin-top: 10px;
+         
         }
         #troika {
       display: grid;
@@ -159,7 +166,8 @@ export default function Home({ data }) {
    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
         }
         #box {
-          padding: 20px;
+          padding: 25px;
+          
         }
         @media only screen and (max-width: 900px) {
 
