@@ -5,7 +5,7 @@ export default function person({ person, phones, addresses, donations }) {
     console.log(donations)
     return (
       <div id="box">
-        <Link href={"/"}>
+        <Link href={"/problem2"}>
           <a>
             <h3>&larr; donor list</h3>
           </a>

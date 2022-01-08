@@ -1,6 +1,7 @@
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
+import Link from 'next/link'
 import names from "../data.json"
 export default function Home({ data }) {
   const [toggle, setToggle] = useState(false)
@@ -20,7 +21,17 @@ export default function Home({ data }) {
     <div>
       <Navbar />
       <div id="box">
+      <Link href={"/"}>
+          <a>
+            <h3>&larr; home</h3>
+          </a>
+        </Link>
         <h3>Project description</h3>
+        <div id="repo">
+            <a href="https://github.com/prokopious/assessment">
+              <div>Link to the code for this site.</div>
+            </a>
+          </div>
         <p>This is a combination of questions 3 and 4. I Made the API call to jsonplaceholder using the Next.js getServersideProps API, which, now that I think about it, probably wasn't the best choice for this use case. It refreshes data on every request for up-to-date information, but it can be somehwat slow. I filtered the original dataset client-side and created a toggle button that hides any array item with an index greater than 9 (from my card array) via the display property. I kept track of application state (toggle state and filtered data) using React's useState hook. For the cards and the grid itself, I used CSS grid for everything. The CSS is all written inside the JSX within special style tags supplied by Next.js. The style is my own version of neomorphism. No endpoint of the jsonplaceholder API had an 'author' field, so I supplied dummy author names. My version of the site isn't identical to the example, but I got the feeling that there was at least some room to change things.   </p>
         <div>
           <h3>Photo Grid</h3>
@@ -94,15 +105,18 @@ export default function Home({ data }) {
           border: none;
           padding-top: 5px;
         padding-bottom: 5px;
+        border-radius: 3px;
+        border: 2px solid hsla(251, 54%, 43%, 0);
         color: gray;
         padding-left: 10px;
         padding-right: 10px;
-        box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+        box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.25),
+   -4px -4px 7px 0 rgba(255, 255, 255, 0.3);
         }
         #toggler {
           background-color: white;
-          border: 1px solid white;
+          border: 2px solid hsla(251, 54%, 43%, 0);
+     
           box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
         padding-top: 5px;
