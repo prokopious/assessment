@@ -33,33 +33,32 @@ export default function sparrow() {
         #project {
           display: inline-block;
           padding: 4px;
-          color: gray;
+    
           font-size: 20;
        
         }
         #project2 {
           display: inline-block;
           font-size: 18;
-          color: gray;
+   
           padding: 3px;
         }
         a {
         
           font-size: 19px;
           padding: 5px;
-          color: #5c5c5c;
+          color: #303058;
         }
         #cover {
           position: relative;
           padding-bottom: 100px;
           min-height: 100vh;
-          background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
         }
         .center {
           position: fixed;
           text-align: center;
-          font-weight: 600;
-          color: #3d3a3a;
+        
+      
           top: 50%;
           left: 50%;
           /* bring your own prefixes */

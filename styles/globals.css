@@ -2,18 +2,15 @@
 
 html,
 body {
-
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   padding: 0;
   margin: 0;
   background-color: #F7F6E7 ;
-  font-family: 'Tiempos Text Regular';
-}
-div {
-
+  font-family: 'Helvetica';
 }
 
 p {
-  color: rgb(63, 63, 63);
+  color: rgb(66, 65, 83);
 }
 
 * {

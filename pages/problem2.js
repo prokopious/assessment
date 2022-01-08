@@ -88,7 +88,9 @@ export default function Problem2({ people, donations }) {
             margin-left: 20px;
             padding-top: 25px;
             padding-left: 10px;
+            padding-right: 20px;
             margin-top: 10px;
+            height: 100vw;
           }
         `}</style>
       </>

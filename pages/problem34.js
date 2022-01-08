@@ -108,6 +108,7 @@ export default function Home({ data }) {
         border-radius: 3px;
         border: 2px solid hsla(251, 54%, 43%, 0);
         color: gray;
+        background-color: #cacaff
         padding-left: 10px;
         padding-right: 10px;
         box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.25),
