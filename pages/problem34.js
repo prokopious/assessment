@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar"
 import Link from 'next/link'
 import names from "../data.json"
 export default function Home({ data }) {
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(true)
   const [filtered, setFiltered] = useState(data)
   const filterPosts = e => {
     let form = e.target.value.toLowerCase()
