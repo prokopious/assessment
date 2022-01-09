@@ -5,11 +5,11 @@ export default function Problem2({ people, donations }) {
       <>
         <div id="wrapper">
           <div id="box">
-            <div id="link"><Link href={"/"}>
-              <a>
-              &larr; home
-              </a>
-            </Link></div>
+            <div id="link">
+              <Link href={"/"}>
+                <a>&larr; home</a>
+              </Link>
+            </div>
             <h3>Project 2 summary:</h3>
             <div id="repo">
               <a href="https://evening-stream-23706.herokuapp.com/">
@@ -45,6 +45,7 @@ export default function Problem2({ people, donations }) {
             </p>
 
             <h3>Donor List</h3>
+            <div id="dlist">
             {people.map((person, i) => {
               const sorted = donations.sort((a, b) =>
                 a.amount < b.amount ? 1 : -1
@@ -73,36 +74,31 @@ export default function Problem2({ people, donations }) {
                   </div>
                 </>
               )
-            })}
+            })}</div>
           </div>
         </div>
         <style jsx>{`
           #name {
-        color: #393535;
-        font-size: calc(16px + .2vw);
+            color: #393535;
+            font-size: calc(16px + 0.2vw);
             margin-bottom: 0;
-          
           }
-
           #link {
             margin-bottom: calc(10px + 4vw);
-    
+          }
+          #dlist {
+            padding-bottom: 100px;
           }
           #donation {
-       
-        padding-top: 5px;
-        padding-bottom: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
           }
           #wrapper {
-    
-        
-         height: 100vw;
+            height: 100vw;
           }
           .list {
-          
             border-radius: 5px;
-
-      margin-bottom: 10px;
+            margin-bottom: 10px;
           }
           div {
             padding: 1px;
@@ -113,18 +109,6 @@ export default function Problem2({ people, donations }) {
             margin-right: auto;
             max-width: 900px;
             height: 100vw;
-      
-
-          }
-          @media only screen and (max-width: 900px) {
-            #box {
-  
-            }
-          }
-          @media only screen and (max-width: 700px) {
-            #box {
-          
-            }
           }
         `}</style>
       </>

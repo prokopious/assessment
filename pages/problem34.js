@@ -125,7 +125,6 @@ export default function Home({ data }) {
         }
         input {
           border: 2px solid hsla(251, 54%, 43%, 0);
-
           box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
             -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
           padding-top: 5px;
@@ -158,15 +157,12 @@ export default function Home({ data }) {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           grid-gap: 10px;
-
           margin-top: 10px;
         }
         #troika {
           display: grid;
-
           grid-template-columns: 7fr 2fr;
         }
-
         #info {
           display: grid;
           grid-template-rows: 30px 50px;
