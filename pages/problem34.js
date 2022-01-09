@@ -1,6 +1,7 @@
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
+import Image from "next/image"
 import Link from "next/link"
 import names from "../data.json"
 export default function Home({ data }) {
@@ -88,7 +89,7 @@ export default function Home({ data }) {
                 let name = names[random]
                 return (
                   <div id="card">
-                    <div id="grad"></div>
+                    <div id="grad"> </div>
                     <div id="troika">
                       <div id="info">
                         <div>
@@ -108,6 +109,9 @@ export default function Home({ data }) {
         </div>
       </div>
       <style jsx>{`
+        #image {
+          object-fit: fill;
+        }
         #b {
           font-size: 30px;
           color; blue;
@@ -170,7 +174,7 @@ export default function Home({ data }) {
         }
         #grad {
           background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
-          height: 100px;
+      height: calc(100px + 7vw);
         }
     
         #card {
@@ -183,7 +187,7 @@ export default function Home({ data }) {
         }
         #box {
           padding: 25px;
-          
+
         }
         @media only screen and (max-width: 900px) {
 

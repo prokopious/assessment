@@ -4,6 +4,7 @@ export default function person({ person, phones, addresses, donations }) {
   if (person != []) {
     console.log(donations)
     return (
+      <div id="wrapper">
       <div id="box">
         <Link href={"/problem2"}>
           <a>
@@ -62,13 +63,19 @@ export default function person({ person, phones, addresses, donations }) {
             </div>
           )
         })}
+        </div>
         <style jsx>{`
+          #wrapper {
+
+  
+          }
           #box {
             padding: 50px;
             margin-left: auto;
             margin-right: auto;
-            height: 100vw;
+            height: 100vh;
           max-width: 900px;
+       
           }
           div {
             padding: 1px;
@@ -94,14 +101,14 @@ export default function person({ person, phones, addresses, donations }) {
           }
           @media only screen and (max-width: 900px) {
             #box {
-            padding: 20px;
+     
             height: 100vw;
           }
           }
           @media only screen and (max-width: 700px) {
             #box {
-            padding: 10px;
-            height: 100vw;
+        
+       
           }
           }
         `}</style>
