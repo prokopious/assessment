@@ -37,7 +37,7 @@ export default function sparrow() {
         h4 {
           margin: 0;
           padding: 0;
-          font-size: calc(16px + 0.9vw);
+          font-size: calc(16px + 0.7vw);
           color: #0000a4;
         }
         #t {
@@ -57,7 +57,7 @@ export default function sparrow() {
           margin-top: -10px;
         }
         a {
-          font-size: calc(16px + 0.6vw);
+          font-size: calc(14px + 0.6vw);
           padding: 4px;
           color: #303058;
         }
@@ -85,7 +85,7 @@ export default function sparrow() {
           #code {
           }
           a {
-            padding: 3px;
+            padding: 1px;
             padding-top: 0px;
           }
           #t {
