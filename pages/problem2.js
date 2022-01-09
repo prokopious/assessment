@@ -44,7 +44,7 @@ export default function Problem2({ people, donations }) {
               page.
             </p>
 
-            <h3>Donor List</h3>
+            <h3>Donor List:</h3>
             <div id="dlist">
             {people.map((person, i) => {
               const sorted = donations.sort((a, b) =>
@@ -99,6 +99,8 @@ export default function Problem2({ people, donations }) {
           .list {
             border-radius: 5px;
             margin-bottom: 10px;
+            background-color: #f3f3f3;
+            mix-blend-mode: multiply;
           }
           div {
             padding: 1px;
@@ -109,6 +111,18 @@ export default function Problem2({ people, donations }) {
             margin-right: auto;
             max-width: 900px;
             height: 100vw;
+          }
+          @media only screen and (max-width: 900px) {
+            #box {
+              height: 100vw;
+              padding: 20px;
+            }
+          }
+          @media only screen and (max-width: 700px) {
+            #box {
+              height: 100vw;
+      
+            }
           }
         `}</style>
       </>

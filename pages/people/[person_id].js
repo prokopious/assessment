@@ -11,7 +11,7 @@ export default function person({ person, phones, addresses, donations }) {
               <a>&larr; donor list</a>
             </Link>
           </div>
-          <h3>Donor Information</h3>
+          <h3>Donor Information:</h3>
           <div id="addr">
             <div id="type">Name: </div>
             <div>{person.name}</div>
@@ -59,6 +59,7 @@ export default function person({ person, phones, addresses, donations }) {
             )
           })}
           <h3>Phone Numbers:</h3>
+          
           {phones.map((phone, i) => {
             return (
               <div key={i} id="addr">
@@ -75,6 +76,9 @@ export default function person({ person, phones, addresses, donations }) {
             margin-right: auto;
             height: 100vh;
             max-width: 900px;
+          }
+          #wrapper {
+            padding-bottom: 100px;
           }
           #link {
             margin-bottom: calc(10px + 4vw);
@@ -101,10 +105,13 @@ export default function person({ person, phones, addresses, donations }) {
           @media only screen and (max-width: 900px) {
             #box {
               height: 100vw;
+              padding: 20px;
             }
           }
           @media only screen and (max-width: 700px) {
             #box {
+              height: 100vw;
+      
             }
           }
         `}</style>
