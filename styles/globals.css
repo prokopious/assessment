@@ -5,19 +5,22 @@ body {
   padding: 0;
   margin: 0;
 
-
+  background-color: #f9f9fb;
   font-family: 'Helvetica';
 
 }
+div {
+  color: #425a70;
+}
 a {
-  color: #303058;
+  color: #234361;
 }
 p {
-color: rgb(37, 37, 37);
+color: #425a70;
 font-size: calc(16px + .2vw);
 }
 h1, h2, h3 {
-  color: #0000a4;
+  color: #234361;
 }
 * {
   box-sizing: border-box;

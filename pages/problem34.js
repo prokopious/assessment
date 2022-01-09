@@ -22,11 +22,11 @@ export default function Home({ data }) {
     <div>
       <Navbar />
       <div id="box">
-        <Link href={"/"}>
-          <a>
-            <h3>&larr; home</h3>
-          </a>
-        </Link>
+        <div id="link">
+          <Link href={"/"}>
+            <a>&larr; home</a>
+          </Link>
+        </div>
         <h3>Project description</h3>
         <div id="repo">
           <a href="https://github.com/prokopious/assessment">
@@ -79,11 +79,7 @@ export default function Home({ data }) {
           <div id="grid">
             {filtered.map((n, i) => {
               let number
-              if (toggle == true) {
-                number = 10
-              } else {
-                number = 50
-              }
+              toggle == true ? (number = 10) : (number = 50)
               if (i < number || number == null) {
                 let random = Math.floor(Math.random() * 1000)
                 let name = names[random]
@@ -109,62 +105,66 @@ export default function Home({ data }) {
         </div>
       </div>
       <style jsx>{`
-        #image {
-          object-fit: fill;
+        #link {
+          margin-bottom: calc(10px + 4vw);
         }
         #b {
           font-size: 30px;
-          color; blue;
           display: flex;
-        justify-content: center;
-        align-items: center;
-        }  
-      #author {
-      margin-top: 0px;
+          justify-content: center;
+          align-items: center;
+        }
+        #image {
+          object-fit: fill;
+        }
+        #author {
+          margin-top: 0px;
         }
         h3 {
           margin-bottom: 16px;
         }
         input {
-
           border: 2px solid hsla(251, 54%, 43%, 0);
-     
+
           box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
-   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
           border-radius: 3px;
-          margin-top: 0px; 
-        color: gray;
+          margin-top: 0px;
+          color: gray;
         }
         #toggler {
-          background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+          background: linear-gradient(
+            -45deg,
+            rgba(0, 0, 0, 0.22),
+            rgba(255, 255, 255, 0.25)
+          );
           font-size: 12px;
           box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
-         -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-         padding-top: 5px;
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+          padding-top: 5px;
           padding-bottom: 5px;
           padding-left: 8px;
           padding-right: 8px;
           text-align: center;
           border-radius: 3px;
-          margin-top: 30px; 
+          margin-top: 30px;
           width: 100px;
-          }
+        }
         #grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           grid-gap: 10px;
-        
+
           margin-top: 10px;
-         
         }
         #troika {
-      display: grid;
+          display: grid;
 
-      grid-template-columns: 7fr 2fr;
+          grid-template-columns: 7fr 2fr;
         }
 
         #info {
@@ -174,41 +174,44 @@ export default function Home({ data }) {
         }
         #grad {
           background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
-      height: calc(100px + 7vw);
+          height: calc(100px + 7vw);
         }
-    
         #card {
-          background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+          background: linear-gradient(
+            -45deg,
+            rgba(0, 0, 0, 0.22),
+            rgba(255, 255, 255, 0.25)
+          );
 
-    
           border-radius: 3px;
           box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
         }
         #box {
           padding: 25px;
-
         }
         @media only screen and (max-width: 900px) {
-
-#grid {
-  grid-template-columns: 1fr 1fr;
-}}
+          #grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
 
         @media only screen and (max-width: 700px) {
-#card {
-display: grid;
-grid-template-columns: 3fr 7fr;
-}
-#author {
-  padding-top: 5px;
-}
-#grad {
-  height: 125px;
-}
-#grid {
-  grid-template-columns: 1fr;
-}}`}</style>
+          #card {
+            display: grid;
+            grid-template-columns: 3fr 7fr;
+          }
+          #author {
+            padding-top: 5px;
+          }
+          #grad {
+            height: 125px;
+          }
+          #grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </div>
   )
 }

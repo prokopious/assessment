@@ -5,12 +5,12 @@ export default function Problem2({ people, donations }) {
       <>
         <div id="wrapper">
           <div id="box">
-            <Link href={"/"}>
+            <div id="link"><Link href={"/"}>
               <a>
-                <h3>&larr; home</h3>
+              &larr; home
               </a>
-            </Link>
-            <h3>Project summary:</h3>
+            </Link></div>
+            <h3>Project 2 summary:</h3>
             <div id="repo">
               <a href="https://evening-stream-23706.herokuapp.com/">
                 <div>Link to raw API endpoint data</div>
@@ -83,20 +83,25 @@ export default function Problem2({ people, donations }) {
             margin-bottom: 0;
           
           }
+
+          #link {
+            margin-bottom: calc(10px + 4vw);
+    
+          }
           #donation {
        
         padding-top: 5px;
         padding-bottom: 5px;
           }
           #wrapper {
-
+    
         
          height: 100vw;
           }
           .list {
-            padding: 10px;
+          
             border-radius: 5px;
-            background-color: #f4f4f4;
+
       margin-bottom: 10px;
           }
           div {
@@ -108,7 +113,8 @@ export default function Problem2({ people, donations }) {
             margin-right: auto;
             max-width: 900px;
             height: 100vw;
-  
+      
+
           }
           @media only screen and (max-width: 900px) {
             #box {
