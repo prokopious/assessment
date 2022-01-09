@@ -57,7 +57,7 @@ export default function sparrow() {
           margin-top: -10px;
         }
         a {
-          font-size: calc(14px + 0.6vw);
+          font-size: calc(12px + 0.7vw);
           padding: 4px;
           color: #303058;
         }
@@ -76,6 +76,7 @@ export default function sparrow() {
           left: 50%;
           transform: translate(-50%, -50%);
         }
+
         @media only screen and (max-width: 900px) {
           h4 {
             margin: 0;
