@@ -78,7 +78,7 @@ export default function person({ person, phones, addresses, donations }) {
             max-width: 900px;
           }
           #wrapper {
-            padding-bottom: 100px;
+            padding-bottom: 300px;
           }
           #link {
             margin-bottom: calc(10px + 4vw);
