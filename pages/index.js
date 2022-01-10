@@ -19,7 +19,7 @@ export default function sparrow() {
           </div>
           <div>
             <div id="project2">
-              <a href="https://github.com/prokopious">Github</a>
+              <a href="https://github.com/prokopious">GitHub</a>
             </div>
             <div id="project2">
               <a id="port" href="https://www.toddhuyett.com/">
