@@ -69,12 +69,12 @@ export default function Problem2() {
             fetch data from multiple sources with a single API call and select
             only the fields that it needs. Originally, I wasn't sure whether to
             use GraphQL, which is why there's a REST API between the database
-            and the GraphQL server, which I decided to keep for this exercise. I
+            and the GraphQL server (which I decided to keep for this exercise). I
             could just as easily have used the MsSQL database alone with
             GraphQL. On the client side, I fetch data from the GraphQL API using
             the Apollo Client library. Please refer to the link above to see the
             code for this page. I connected to my database instance using MsSQL
-            Server Management Studio (and creates the tables, etc., using SQL
+            Server Management Studio (and created the tables, etc., using SQL
             commands). I chose to use one-to-many relationships for donations,
             phone numbers, and addresses. I did so to retain flexibility (there
             could well be a person with 10 mobile numbers). The same is true of

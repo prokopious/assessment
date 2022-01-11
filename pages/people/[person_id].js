@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 export default function person() {
   const router = useRouter()
   const { person_id } = router.query
-
   const { data, loading, error } = useQuery(gql`
 query Donor {
   person(person_id: ${person_id}) {
@@ -57,7 +56,9 @@ query Donor {
           </div>
           <h3>Donations:</h3>
           <div>
-            {JSON.stringify(data.person.donations) === `[]` ? "No donations to date" : ""}
+            {JSON.stringify(data.person.donations) === `[]`
+              ? "No donations to date"
+              : ""}
           </div>
 
           {data.person.donations.map((donation, i) => {

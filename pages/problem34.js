@@ -1,7 +1,9 @@
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
-import Image from "next/image"
+
+import { FaSearch } from "react-icons/fa";
+
 import Link from "next/link"
 import names from "../data.json"
 export default function Home({ data }) {
@@ -48,6 +50,7 @@ export default function Home({ data }) {
         </p>
         <div>
           <h3>Photo Grid</h3>
+
           <div>
             <input
               type="text"
@@ -112,6 +115,18 @@ export default function Home({ data }) {
         }
         #image {
           object-fit: fill;
+        }
+        .in {
+          border: 2px solid hsla(251, 54%, 43%, 0);
+          box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25),
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+          border-radius: 3px;
+          margin-top: 0px;
+          color: gray;
         }
         #author {
           margin-top: 0px;
