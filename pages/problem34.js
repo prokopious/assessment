@@ -199,9 +199,9 @@ export default function Home({ data }) {
           padding: 50px;
           margin-left: auto;
           margin-right: auto;
-          max-width: 900px;
+          max-width: 960px;
         }
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 960px) {
           #grid {
             grid-template-columns: 1fr 1fr;
           }

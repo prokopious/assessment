@@ -148,10 +148,10 @@ export default function Problem2() {
           padding: 50px;
           margin-left: auto;
           margin-right: auto;
-          max-width: 900px;
+          max-width: 960px;
           height: 100vw;
         }
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 960px) {
           #box {
             height: 100vw;
             padding: 20px;

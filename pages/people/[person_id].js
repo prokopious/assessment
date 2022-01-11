@@ -111,7 +111,7 @@ query Donor {
             margin-left: auto;
             margin-right: auto;
             height: 100vh;
-            max-width: 900px;
+            max-width: 960px;
           }
           #wrapper {
             padding-bottom: 300px;
@@ -138,7 +138,7 @@ query Donor {
           .highlight {
             background-color: #fffcdd;
           }
-          @media only screen and (max-width: 900px) {
+          @media only screen and (max-width: 960px) {
             #box {
               height: 100vw;
               padding: 20px;
