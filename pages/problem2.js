@@ -53,15 +53,11 @@ export default function Problem2() {
               <a href="https://github.com/prokopious/rds/blob/main/app.js">
                 (see the code here)
               </a>{" "}
-              deployed on Heroku, which makes SQL queries on behalf of the
-              client. Please refer to the provided server-side code (app.js) to
-              see those queries. I only exposed two GET endpoints, but it could
-              easily be expanded. I connected to my database instance using
-              MsSQL Server Management Studio (and built the database itself
-              using SQL commands). Due to the large number of people (over
-              1,000,000) in the database, I opted for server-side rendering as
-              opposed to static rendering, which keeps users up to date in the
-              event of a data change. I chose to use one-to-many relationships
+              deployed on Heroku, which makes SQL queries on behalf of a GraphQL server (also deployed on Heroku).
+              The same GraphQL server could easily fetch data from additional sources and then make it possible for the client to fetch data from multiple sources with a single API call and select only the fields that it needs.     
+              I connected to my database instance using
+              MsSQL Server Management Studio (and creates the tables, etc., 
+              using SQL commands). I chose to use one-to-many relationships
               for donations, phone numbers, and addresses. I did so to retain
               flexibility (there could well be a person with 10 mobile numbers)
               and efficiency. The same is true of the donations. Below is a
