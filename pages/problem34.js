@@ -1,14 +1,17 @@
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
+import { random } from '../utils/random'
 
 import { FaSearch } from "react-icons/fa";
 
 import Link from "next/link"
 import names from "../data.json"
 export default function Home({ data }) {
+
   const [toggle, setToggle] = useState(true)
   const [filtered, setFiltered] = useState(data)
+
   const filterPosts = e => {
     let form = e.target.value.toLowerCase()
     let newArr = []
@@ -24,6 +27,7 @@ export default function Home({ data }) {
     <div>
       <Navbar />
       <div id="box">
+        <div id="summary">
         <div id="link">
           <Link href={"/"}>
             <a>&larr; home</a>
@@ -47,10 +51,9 @@ export default function Home({ data }) {
           special style tags supplied by Next.js. The style is my own version of
           neomorphism and I didn't use any CSS libraries or frameworks. No endpoint of the jsonplaceholder API had an 'author'
           field, so I supplied dummy author names, generated randomly from a JSON list. Because I combined two project, the interface won't look quite like either one.
-        </p>
-        <div>
+        </p></div>
+        <div id="gr">
           <h3>Photo Grid</h3>
-
           <div>
             <input
               type="text"
@@ -80,15 +83,13 @@ export default function Home({ data }) {
               let number
               toggle == true ? (number = 10) : (number = 50)
               if (i < number || number == null) {
-                let random = Math.floor(Math.random() * 1000)
-                let name = names[random]
                 return (
                   <div id="card">
                     <div id="grad"> </div>
                     <div id="troika">
                       <div id="info">
                         <div>
-                          <h4 id="author">{name}</h4>
+                          <h4 id="author">{random()}</h4>
                         </div>
                         <div id="title">{n.title}</div>
                       </div>
@@ -195,7 +196,10 @@ export default function Home({ data }) {
             -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
         }
         #box {
-          padding: 25px;
+          padding: 50px;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 900px;
         }
         @media only screen and (max-width: 900px) {
           #grid {
