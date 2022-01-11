@@ -24,9 +24,6 @@ export default function Problem2() {
     console.error(error)
     return null
   }
-
-
-
     return (
       <>
         <div id="wrapper">
@@ -38,15 +35,26 @@ export default function Problem2() {
             </div>
             <h3>Project 2 summary:</h3>
             <div id="repo">
-              <a href="https://evening-stream-23706.herokuapp.com/">
-                <div>Link to raw API endpoint data</div>
+              <a href="https://github.com/prokopious/rds/blob/main/app.js">
+                <div>Link to REST API code</div>
               </a>
             </div>
             <div id="repo">
-              <a href="https://github.com/prokopious/rds/blob/main/app.js">
-                <div>Link to server code</div>
+              <a href="https://evening-stream-23706.herokuapp.com/">
+                <div>Link to REST endpoint</div>
               </a>
             </div>
+            <div id="repo">
+              <a href="https://github.com/prokopious/apollo/blob/main/index.js">
+                <div>Link to GraphQL server code</div>
+              </a>
+            </div>
+            <div id="repo">
+              <a href="https://evening-stream-23706.herokuapp.com/">
+                <div>Link to GraphQL endpoint</div>
+              </a>
+            </div>
+          
             <p>
               This project consists of a MsSQL Server deployed on AWS RDS. The
               data is fetched from a Node.js REST API{" "}
