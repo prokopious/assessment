@@ -16,13 +16,92 @@ const QUERY = gql`
 `
 export default function Problem2() {
   const { data, loading, error } = useQuery(QUERY)
-  if (loading) {
-    return <h2>Loading...</h2>
-  }
 
   if (error) {
     console.error(error)
     return null
+  }
+  let ListTemplate
+  if (loading) {
+    ListTemplate = <h3>Loading...</h3>
+  } else {
+    
+     ListTemplate = data.people.map((person, i) => {
+        let arr = []
+        person.donations.forEach(element => {
+          arr.push(element)
+        })
+
+        const sorted = arr.sort((a, b) => (a.amount > b.amount ? 1 : -1))
+
+        return (
+          <>
+            <div className="list" key={i}>
+              <Link href={`/people/${person.person_id}`}>
+                <a>
+                  <div id="name">{person.name}</div>
+                </a>
+              </Link>
+              <div id="donation">
+                {sorted[0].amount
+                  ? "Highest donation: $" + sorted[0].amount
+                  : "No donations to date"}
+              </div>
+              <div>
+                <i>{sorted[0].memo ? sorted[0].memo : ""}</i>
+              </div>
+            </div>
+            <style jsx>{`
+        #name {
+          color: #393535;
+          font-size: calc(16px + 0.2vw);
+          margin-bottom: 0;
+        }
+        #link {
+          margin-bottom: calc(10px + 4vw);
+        }
+        #dlist {
+          padding-bottom: 100px;
+        }
+        #donation {
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+        #wrapper {
+          height: 100vw;
+        }
+        .list {
+          border-radius: 5px;
+          margin-bottom: 10px;
+          background-color: #f3f3f3;
+          mix-blend-mode: multiply;
+        }
+        div {
+          padding: 1px;
+        }
+        #box {
+          padding: 50px;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 900px;
+          height: 100vw;
+        }
+        @media only screen and (max-width: 900px) {
+          #box {
+            height: 100vw;
+            padding: 20px;
+          }
+        }
+        @media only screen and (max-width: 700px) {
+          #box {
+            height: 100vw;
+          }
+        }
+      `}</style>
+          </>
+        )
+      })
+    
   }
   return (
     <>
@@ -69,8 +148,8 @@ export default function Problem2() {
             fetch data from multiple sources with a single API call and select
             only the fields that it needs. Originally, I wasn't sure whether to
             use GraphQL, which is why there's a REST API between the database
-            and the GraphQL server (which I decided to keep for this exercise). I
-            could just as easily have used the MsSQL database alone with
+            and the GraphQL server (which I decided to keep for this exercise).
+            I could just as easily have used the MsSQL database alone with
             GraphQL. On the client side, I fetch data from the GraphQL API using
             the Apollo Client library. Please refer to the link above to see the
             code for this page. I connected to my database instance using MsSQL
@@ -84,36 +163,7 @@ export default function Problem2() {
           </p>
 
           <h3>Donor List:</h3>
-          <div id="dlist">
-            {data.people.map((person, i) => {
-              let arr = []
-              person.donations.forEach(element => {
-                arr.push(element)
-              })
-
-              const sorted = arr.sort((a, b) => (a.amount > b.amount ? 1 : -1))
-
-              return (
-                <>
-                  <div className="list" key={i}>
-                    <Link href={`/people/${person.person_id}`}>
-                      <a>
-                        <div id="name">{person.name}</div>
-                      </a>
-                    </Link>
-                    <div id="donation">
-                      {sorted[0].amount
-                        ? "Highest donation: $" + sorted[0].amount
-                        : "No donations to date"}
-                    </div>
-                    <div>
-                      <i>{sorted[0].memo ? sorted[0].memo : ""}</i>
-                    </div>
-                  </div>
-                </>
-              )
-            })}
-          </div>
+          <div id="dlist">{ListTemplate}</div>
         </div>
       </div>
       <style jsx>{`
