@@ -50,7 +50,7 @@ export default function Problem2() {
               </a>
             </div>
             <div id="repo">
-              <a href="https://evening-stream-23706.herokuapp.com/">
+              <a href="https://blooming-island-13363.herokuapp.com/">
                 <div>Link to GraphQL endpoint</div>
               </a>
             </div>
@@ -62,13 +62,13 @@ export default function Problem2() {
                 (see the code here)
               </a>{" "}
               deployed on Heroku, which makes SQL queries on behalf of a GraphQL server (also deployed on Heroku).
-              The same GraphQL server could easily fetch data from additional sources and then make it possible for the client to fetch data from multiple sources with a single API call and select only the fields that it needs.     
+              The same GraphQL server could easily fetch data from additional sources and then make it possible for the client to fetch data from multiple sources with a single API call and select only the fields that it needs.
+              Originally, I wasn't sure whether to use GraphQL, which is why there's a REST API between the database and the GraphQL server. I could just as easily have used the MsSQL database alone with GraphQL.       
               I connected to my database instance using
-              MsSQL Server Management Studio (and creates the tables, etc., 
+              MsSQL Server Management Studio (and creates the tables, etc.,
               using SQL commands). I chose to use one-to-many relationships
               for donations, phone numbers, and addresses. I did so to retain
-              flexibility (there could well be a person with 10 mobile numbers)
-              and efficiency. The same is true of the donations. Below is a
+              flexibility (there could well be a person with 10 mobile numbers). The same is true of the donations. Below is a
               donor list with a brief summary for each person. Click on a name
               to see more details. You will be taken to a dynamically generated
               page.
