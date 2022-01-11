@@ -1,6 +1,32 @@
 import Link from "next/link"
-export default function Problem2({ people, donations }) {
-  if (people != []) {
+import { useQuery, gql } from "@apollo/client"
+
+const QUERY = gql`
+  query Donors {
+    people {
+      name
+      person_id
+      donations {
+        amount
+        type
+        memo
+      }
+    }
+  }
+`
+export default function Problem2() {
+  const { data, loading, error } = useQuery(QUERY)
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+
+  if (error) {
+    console.error(error)
+    return null
+  }
+
+
+
     return (
       <>
         <div id="wrapper">
@@ -46,35 +72,43 @@ export default function Problem2({ people, donations }) {
 
             <h3>Donor List:</h3>
             <div id="dlist">
-            {people.map((person, i) => {
-              const sorted = donations.sort((a, b) =>
-                a.amount < b.amount ? 1 : -1
-              )
-              let result = sorted.find(obj => {
-                return obj.person_id === person.person_id
-              })
+              {data.people.map((person, i) => {
+         let arr = [];
+         person.donations.forEach(element => {
+           arr.push(element)
+         });
+     
+        
+        
+                const sorted = arr.sort((a, b) =>
+                  a.amount > b.amount ? 1 : -1
+                )
+                console.log(sorted[0].amount)
+        
+             
+      
+                return (
+                  <>
+                    <div className="list" key={i}>
+                      <Link href={`/people/${person.person_id}`}>
+                        <a>
+                          <div id="name">{person.name}</div>
+                        </a>
+                      </Link>
 
-              return (
-                <>
-                  <div className="list" key={i}>
-                    <Link href={`/people/${person.person_id}`}>
-                      <a>
-                        <div id="name">{person.name}</div>
-                      </a>
-                    </Link>
-
-                    <div id="donation">
-                      {result.amount != []
-                        ? "Highest donation: $" + result.amount
-                        : "No donations to date"}
+                      <div id="donation">
+                        {sorted[0].amount
+                          ? "Highest donation: $" + sorted[0].amount
+                          : "No donations to date"}
+                      </div>
+                      <div>
+                        <i>{sorted[0].memo ? sorted[0].memo : ""}</i>
+                      </div>
                     </div>
-                    <div>
-                      <i>{result.memo ? result.memo : ""}</i>
-                    </div>
-                  </div>
-                </>
-              )
-            })}</div>
+                  </>
+                )
+              })}
+            </div>
           </div>
         </div>
         <style jsx>{`
@@ -121,16 +155,13 @@ export default function Problem2({ people, donations }) {
           @media only screen and (max-width: 700px) {
             #box {
               height: 100vw;
-      
             }
           }
         `}</style>
       </>
     )
-  } else {
-    return <>Loading...</>
-  }
-}
+  } 
+
 
 export async function getServerSideProps() {
   const res = await fetch(`https://evening-stream-23706.herokuapp.com/`)

@@ -1,8 +1,43 @@
 import Link from "next/link"
+import { useQuery, gql } from "@apollo/client"
+import { useRouter } from "next/router"
 
-export default function person({ person, phones, addresses, donations }) {
-  if (person != []) {
-    console.log(donations)
+export default function person() {
+  const router = useRouter()
+  const { person_id } = router.query
+
+  const { data, loading, error } = useQuery(gql`
+query Donor {
+  person(person_id: ${person_id}) {
+    name
+    ethnicity
+    donations{
+      memo
+      type
+      amount
+    }
+    phones {
+      phone_type
+      phone
+    }
+    addresses {
+      the_address
+      address_type
+    }
+}
+}
+`)
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+
+  if (error) {
+    console.error(error)
+    return null
+  }
+  console.log(data)
+
+  if (data.person != []) {
     return (
       <div id="wrapper">
         <div id="box">
@@ -14,19 +49,19 @@ export default function person({ person, phones, addresses, donations }) {
           <h3>Donor Information:</h3>
           <div id="addr">
             <div id="type">Name: </div>
-            <div>{person.name}</div>
+            <div>{data.person.name}</div>
           </div>
           <div id="addr">
             <div id="type">Race: </div>
-            <div>{person.ethnicity}</div>
+            <div>{data.person.ethnicity}</div>
           </div>
           <h3>Donations:</h3>
           <div>
-            {JSON.stringify(donations) === `[]` ? "No donations to date" : ""}
+            {JSON.stringify(data.person.donations) === `[]` ? "No donations to date" : ""}
           </div>
 
-          {donations.map((donation, i) => {
-            const index = donations.indexOf(donation) % 2
+          {data.person.donations.map((donation, i) => {
+            const index = data.person.donations.indexOf(donation) % 2
             console.log(index)
             return (
               <div
@@ -50,7 +85,7 @@ export default function person({ person, phones, addresses, donations }) {
             )
           })}
           <h3>Addresses:</h3>
-          {addresses.map((address, i) => {
+          {data.person.addresses.map((address, i) => {
             return (
               <div key={i} id="addr">
                 <div id="type">{address.address_type}:</div>
@@ -59,8 +94,8 @@ export default function person({ person, phones, addresses, donations }) {
             )
           })}
           <h3>Phone Numbers:</h3>
-          
-          {phones.map((phone, i) => {
+
+          {data.person.phones.map((phone, i) => {
             return (
               <div key={i} id="addr">
                 <div id="type">{phone.phone_type}:</div>
@@ -111,7 +146,6 @@ export default function person({ person, phones, addresses, donations }) {
           @media only screen and (max-width: 700px) {
             #box {
               height: 100vw;
-      
             }
           }
         `}</style>

@@ -8,8 +8,10 @@
     "export": "next export"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.7",
     "axios": "^0.24.0",
     "components": "^0.1.0",
+    "graphql": "^16.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "mathjax": "^3.2.0",
