@@ -101,7 +101,6 @@ export default function Problem2() {
           </>
         )
       })
-    
   }
   return (
     <>
@@ -140,8 +139,8 @@ export default function Problem2() {
           </div>
 
           <p>
-            This project consists of a MsSQL Server deployed on AWS RDS. The
-            data is fetched from a Node.js REST API deployed on Heroku, which
+            This project consists of a MsSQL database deployed on AWS RDS. The
+            data is fetched by a Node.js (Express) REST API deployed on Heroku, which
             makes SQL queries on behalf of an Apollo GraphQL server (also
             deployed on Heroku). The same GraphQL server could easily fetch data
             from additional sources and then make it possible for the client to
