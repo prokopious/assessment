@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { useQuery, gql } from "@apollo/client"
+import { gql } from "@apollo/client"
+import client from "../apollo-client"
 
 const QUERY = gql`
   query Donors {
@@ -14,16 +15,7 @@ const QUERY = gql`
     }
   }
 `
-export default function Problem2() {
-  const { data, loading, error } = useQuery(QUERY)
-  if (loading) {
-    return <h2>Loading...</h2>
-  }
-
-  if (error) {
-    console.error(error)
-    return null
-  }
+export default function Problem2({ people }) {
   return (
     <>
       <div id="wrapper">
@@ -69,8 +61,8 @@ export default function Problem2() {
             fetch data from multiple sources with a single API call and select
             only the fields that it needs. Originally, I wasn't sure whether to
             use GraphQL, which is why there's a REST API between the database
-            and the GraphQL server (which I decided to keep for this exercise). I
-            could just as easily have used the MsSQL database alone with
+            and the GraphQL server (which I decided to keep for this exercise).
+            I could just as easily have used the MsSQL database alone with
             GraphQL. On the client side, I fetch data from the GraphQL API using
             the Apollo Client library. Please refer to the link above to see the
             code for this page. I connected to my database instance using MsSQL
@@ -85,7 +77,7 @@ export default function Problem2() {
 
           <h3>Donor List:</h3>
           <div id="dlist">
-            {data.people.map((person, i) => {
+            {people.map((person, i) => {
               let arr = []
               person.donations.forEach(element => {
                 arr.push(element)
@@ -165,4 +157,27 @@ export default function Problem2() {
       `}</style>
     </>
   )
+}
+export async function getServerSideProps() {
+  const { data } = await client.query({
+    query: gql`
+      query Donors {
+        people {
+          name
+          person_id
+          donations {
+            amount
+            type
+            memo
+          }
+        }
+      }
+    `,
+  })
+
+  return {
+    props: {
+      people: data.people,
+    },
+  }
 }
