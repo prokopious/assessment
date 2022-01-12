@@ -202,12 +202,18 @@ export default function Home({ data }) {
           max-width: 960px;
         }
         @media only screen and (max-width: 960px) {
+          #box {
+            padding: 20px;
+          }
           #grid {
             grid-template-columns: 1fr 1fr;
           }
         }
 
         @media only screen and (max-width: 700px) {
+          #box {
+            padding: 10px;
+          }
           #card {
             display: grid;
             grid-template-columns: 3fr 7fr;
