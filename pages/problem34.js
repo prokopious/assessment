@@ -212,7 +212,7 @@ export default function Home({ data }) {
 
         @media only screen and (max-width: 700px) {
           #box {
-            padding: 10px;
+            padding: 20px;
           }
           #card {
             display: grid;
