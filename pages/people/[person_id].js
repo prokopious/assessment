@@ -29,12 +29,14 @@ export default function person({ person }) {
           </div>
 
           {person.donations.map((donation, i) => {
-            const index = person.donations.indexOf(donation) % 2
-            console.log(index)
             return (
               <div
                 id="d"
-                className={index == 0 ? "highlight" : "other"}
+                className={
+                  person.donations.indexOf(donation) % 2 == 0
+                    ? "highlight"
+                    : "other"
+                }
                 key={i}
               >
                 <div id="addr">
@@ -144,7 +146,7 @@ export async function getServerSideProps({ params }) {
           the_address
           address_type
         }
-    }
+      }
     }
     `,
   })
