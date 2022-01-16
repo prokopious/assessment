@@ -8,10 +8,6 @@ export interface Person {
   phones: Phone[]
 }
 
-export type DeepNullable<T> = {
-  [K in keyof T]: DeepNullable<T[K]> | null
-}
-
 export interface Donation {
   type: string
   amount: number
@@ -34,3 +30,7 @@ export interface Phone {
   phone: String
   phone_type: String
 }
+
+export interface ItemProps {
+    person: Person
+  }

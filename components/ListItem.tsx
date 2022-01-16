@@ -1,15 +1,13 @@
-import { Person, Donation } from "../types/index"
+import { ItemProps, Person, Donation } from "../types/index"
 import Link from "next/link"
 import { FunctionComponent } from "react"
 
-type ItemProps = {
-  person: Person
-}
-
 export const ListItem: FunctionComponent<ItemProps> = ({
   person,
+}: {
+  person: Person
 }) => {
-    let donations: Donation[] = person.donations
+  let donations: Donation[] = person.donations
     .map((item: Donation, i) => {
       return item
     })

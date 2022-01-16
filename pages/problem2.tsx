@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { gql } from "@apollo/client"
-import { Person, Donation, DeepNullable } from "../types/index"
+import { Person } from "../types/index"
 import { InferGetServerSidePropsType } from "next"
 import client from "../apollo-client"
 import { GetServerSideProps } from "next"
