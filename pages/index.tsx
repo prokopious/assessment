@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function sparrow() {
+export default function home() {
   return (
     <>
       <div id="cover">

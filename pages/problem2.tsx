@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { gql } from "@apollo/client"
-import { Person } from "../types/index"
+import { Person, Donation } from "../types/index"
 import { InferGetServerSidePropsType } from "next"
 import client from "../apollo-client"
 import { GetServerSideProps } from "next"
@@ -39,7 +39,7 @@ export default function Problem2({
             </a>
           </div>
           <div id="repo">
-            <a href="https://github.com/prokopious/assessment/blob/main/pages/problem2.js">
+            <a href="https://github.com/prokopious/assessment/blob/main/pages/problem2.tsx">
               <div>Code for this page</div>
             </a>
           </div>
@@ -75,7 +75,9 @@ export default function Problem2({
                 arr.push(element)
               })
 
-              const sorted = arr.sort((a, b) => (a.amount > b.amount ? 1 : -1))
+              const sorted: Donation[] = arr.sort((a, b) =>
+                a.amount > b.amount ? 1 : -1
+              )
 
               return (
                 <>
