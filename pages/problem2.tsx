@@ -1,21 +1,13 @@
 import Link from "next/link"
 import { gql } from "@apollo/client"
+import { Person } from "../types/index"
+import { InferGetServerSidePropsType } from "next"
 import client from "../apollo-client"
+import { GetServerSideProps } from "next"
 
-const QUERY = gql`
-  query Donors {
-    people {
-      name
-      person_id
-      donations {
-        amount
-        type
-        memo
-      }
-    }
-  }
-`
-export default function Problem2({ people }) {
+export default function Problem2({
+  people,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <div id="wrapper">
@@ -158,7 +150,7 @@ export default function Problem2({ people }) {
     </>
   )
 }
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await client.query({
     query: gql`
       query Donors {
@@ -175,9 +167,11 @@ export async function getServerSideProps() {
     `,
   })
 
+  const people: Person[] = await data.people
+
   return {
     props: {
-      people: data.people,
+      people,
     },
   }
 }
