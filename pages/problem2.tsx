@@ -55,10 +55,11 @@ export default function Problem2({
             use GraphQL, which is why there's a REST API between the database
             and the GraphQL server (which I decided to keep for this exercise).
             I could just as easily have used the MsSQL database alone with
-            GraphQL. On the client side, I fetch data from the GraphQL API using
-            the Apollo Client library. Please refer to the link above to see the
-            code for this page. I connected to my database instance using MsSQL
-            Server Management Studio (and created the tables, etc., using SQL
+            GraphQL. On the client side, the front-end was built with Next.js
+            and Typescript. I fetch data from the GraphQL API using the Apollo
+            Client library. Please refer to the link above to see the code for
+            this page. I connected to my database instance using MsSQL Server
+            Management Studio (and created the tables, etc., using SQL
             commands). I chose to use one-to-many relationships for donations,
             phone numbers, and addresses. I did so to retain flexibility (there
             could well be a person with 10 mobile numbers). The same is true of
@@ -70,12 +71,11 @@ export default function Problem2({
           <h3>Donor List:</h3>
           <div id="dlist">
             {people.map((person: Person, i) => {
-              const sorted = person.donations
+              let sorted = person.donations
                 .map((item: Donation, i) => {
                   return item
                 })
                 .sort((a, b) => (a.amount > b.amount ? 1 : -1))
-
               return (
                 <>
                   <div className="list" key={i}>
@@ -85,12 +85,12 @@ export default function Problem2({
                       </a>
                     </Link>
                     <div id="donation">
-                      {sorted[0].amount
+                      {sorted.length
                         ? "Highest donation: $" + sorted[0].amount
                         : "No donations to date"}
                     </div>
                     <div>
-                      <i>{sorted[0].memo ? sorted[0].memo : ""}</i>
+                      <i>{sorted.length ? sorted[0].memo : ""}</i>
                     </div>
                   </div>
                 </>
