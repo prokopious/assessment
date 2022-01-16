@@ -69,15 +69,12 @@ export default function Problem2({
 
           <h3>Donor List:</h3>
           <div id="dlist">
-            {people.map((person, i) => {
-              let arr = []
-              person.donations.forEach(element => {
-                arr.push(element)
-              })
-
-              const sorted: Donation[] = arr.sort((a, b) =>
-                a.amount > b.amount ? 1 : -1
-              )
+            {people.map((person: Person, i) => {
+              const sorted = person.donations
+                .map((item: Donation, i) => {
+                  return item
+                })
+                .sort((a, b) => (a.amount > b.amount ? 1 : -1))
 
               return (
                 <>
@@ -169,7 +166,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     `,
   })
 
-  const people: Person[] = await data.people
+  const people: Person[] = data.people
 
   return {
     props: {

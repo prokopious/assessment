@@ -8,6 +8,10 @@ export interface Person {
   phones: Phone[]
 }
 
+type ReadonlyNullable<T> = {
+    readonly [K in keyof T]: T[K] | null;
+}
+
 export interface Donation {
   type: string
   amount: string
