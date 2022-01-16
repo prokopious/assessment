@@ -1,9 +1,10 @@
 import Link from "next/link"
 import { gql } from "@apollo/client"
-import { Person, Donation } from "../types/index"
+import { Person, Donation, DeepNullable } from "../types/index"
 import { InferGetServerSidePropsType } from "next"
 import client from "../apollo-client"
 import { GetServerSideProps } from "next"
+import ListItem from "../components/ListItem"
 
 export default function Problem2({
   people,
@@ -71,28 +72,9 @@ export default function Problem2({
           <h3>Donor List:</h3>
           <div id="dlist">
             {people.map((person: Person, i) => {
-              let sorted = person.donations
-                .map((item: Donation, i) => {
-                  return item
-                })
-                .sort((a, b) => (a.amount > b.amount ? 1 : -1))
               return (
                 <>
-                  <div className="list" key={i}>
-                    <Link href={`/people/${person.person_id}`}>
-                      <a>
-                        <div id="name">{person.name}</div>
-                      </a>
-                    </Link>
-                    <div id="donation">
-                      {sorted.length
-                        ? "Highest donation: $" + sorted[0].amount
-                        : "No donations to date"}
-                    </div>
-                    <div>
-                      <i>{sorted.length ? sorted[0].memo : ""}</i>
-                    </div>
-                  </div>
+                  <ListItem person={person} />
                 </>
               )
             })}
@@ -100,29 +82,14 @@ export default function Problem2({
         </div>
       </div>
       <style jsx>{`
-        #name {
-          color: #393535;
-          font-size: calc(16px + 0.2vw);
-          margin-bottom: 0;
-        }
         #link {
           margin-bottom: calc(10px + 4vw);
         }
         #dlist {
           padding-bottom: 100px;
         }
-        #donation {
-          padding-top: 5px;
-          padding-bottom: 5px;
-        }
         #wrapper {
           height: 100vw;
-        }
-        .list {
-          border-radius: 5px;
-          margin-bottom: 10px;
-          background-color: #f3f3f3;
-          mix-blend-mode: multiply;
         }
         div {
           padding: 1px;

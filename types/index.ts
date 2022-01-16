@@ -8,13 +8,13 @@ export interface Person {
   phones: Phone[]
 }
 
-type ReadonlyNullable<T> = {
-    readonly [K in keyof T]: T[K] | null;
+export type DeepNullable<T> = {
+  [K in keyof T]: DeepNullable<T[K]> | null
 }
 
 export interface Donation {
   type: string
-  amount: string
+  amount: number
   date: string
   memo: string
   donation_id: number
@@ -29,8 +29,8 @@ export interface Address {
 }
 
 export interface Phone {
-    phone_id: number
-    person_id: number
-    phone: String
-    phone_type: String
-  }
+  phone_id: number
+  person_id: number
+  phone: String
+  phone_type: String
+}
