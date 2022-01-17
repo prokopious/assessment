@@ -9,7 +9,7 @@ export const ListItem: FunctionComponent<ItemProps> = ({
   person: Person
 }) => {
 
-  const highDonation: Donation = person.donations.reduce(function(prev, current) {
+  const highDonation: Donation = person.donations.reduce(function(prev: Donation, current: Donation) {
     return (prev.amount > current.amount) ? prev : current
 }) 
 
