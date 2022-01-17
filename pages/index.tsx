@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function home() {
+export default function home(): JSX.Element {
   return (
     <>
       <div id="cover">
@@ -65,7 +65,6 @@ export default function home() {
           padding-bottom: 100px;
           min-height: 100vh;
           margin-top: -5px;
-       
         }
         .center {
           position: fixed;
@@ -80,7 +79,6 @@ export default function home() {
           h4 {
             margin: 0;
             padding: 0;
-        
           }
           #code {
           }

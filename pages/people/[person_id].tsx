@@ -152,7 +152,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     `,
   })
 
-  const person: Person = await data.person
+  const person: Person = data.person
 
   return {
     props: {

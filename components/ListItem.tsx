@@ -2,16 +2,17 @@ import { ItemProps, Person, Donation } from "../types/index"
 import Link from "next/link"
 import { FunctionComponent } from "react"
 
+
 export const ListItem: FunctionComponent<ItemProps> = ({
   person,
 }: {
   person: Person
 }) => {
-  let donations: Donation[] = person.donations
-    .map((item: Donation, i) => {
-      return item
-    })
-    .sort((a, b) => (a.amount > b.amount ? 1 : -1))
+
+  const highDonation: Donation = person.donations.reduce(function(prev, current) {
+    return (prev.amount > current.amount) ? prev : current
+}) 
+
   return (
     <div>
       <div className="list">
@@ -21,12 +22,12 @@ export const ListItem: FunctionComponent<ItemProps> = ({
           </a>
         </Link>
         <div id="donation">
-          {donations.length
-            ? "Highest donation: $" + donations[0].amount
+          {highDonation.amount
+            ? "Highest donation: $" + highDonation.amount
             : "No donations to date"}
         </div>
         <div>
-          <i>{donations.length ? donations[0].memo : ""}</i>
+          <i>{highDonation.amount ? highDonation.memo : ""}</i>
         </div>
       </div>
       <style jsx>{`
