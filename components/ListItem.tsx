@@ -1,13 +1,13 @@
 import { ItemProps, Person, Donation } from "../types/index"
 import Link from "next/link"
-import { FunctionComponent, useState } from "react"
+import { FunctionComponent } from "react"
 
 export const ListItem: FunctionComponent<ItemProps> = ({
   person,
 }: {
   person: Person
 }) => {
-  const highDonation: Donation | null = person.donations.length
+  let highDonation: Donation | null = person.donations.length
     ? person.donations.reduce(function (prev, current) {
         return Number(prev.amount) > Number(current.amount) ? prev : current
       })

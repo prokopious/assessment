@@ -34,3 +34,7 @@ export interface Phone {
 export interface ItemProps {
     person: Person
   }
+
+  export interface Stuff {
+    title: String
+  }

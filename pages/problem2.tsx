@@ -9,6 +9,7 @@ import ListItem from "../components/ListItem"
 export default function Problem2({
   people,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+ 
   return (
     <>
       <div id="wrapper">
@@ -71,6 +72,7 @@ export default function Problem2({
 
           <h3>Donor List:</h3>
           <div id="dlist">
+
             {people.map((person: Person, i) => {
               return (
                 <>

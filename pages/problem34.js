@@ -1,14 +1,9 @@
-import { AiOutlinePlusCircle } from "react-icons/ai"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
-import { random } from '../utils/random'
-
-import { FaSearch } from "react-icons/fa";
-
+import PhotoCard from "../components/PhotoCard"
 import Link from "next/link"
-import names from "../data.json"
-export default function Home({ data }) {
 
+export default function Home({ data }) {
   const [toggle, setToggle] = useState(true)
   const [filtered, setFiltered] = useState(data)
 
@@ -28,30 +23,36 @@ export default function Home({ data }) {
       <Navbar />
       <div id="box">
         <div id="summary">
-        <div id="link">
-          <Link href={"/"}>
-            <a>&larr; home</a>
-          </Link>
+          <div id="link">
+            <Link href={"/"}>
+              <a>&larr; home</a>
+            </Link>
+          </div>
+          <h3>Project description</h3>
+          <div id="repo">
+            <a href="https://github.com/prokopious/assessment">
+              <div>Link to the code for this site.</div>
+            </a>
+          </div>
+          <p>
+            This is a combination of questions 3 and 4. I Made the API call to
+            jsonplaceholder using the Next.js getServersideProps API. It
+            refreshes data on every request for up-to-date information, but it
+            can be somehwat slow. Static pages would be faster, but data changes
+            would have to wait untli the next build. I filtered the original
+            dataset client-side and created a toggle button that hides any array
+            item with an index greater than 9 (from my card array) via the
+            display property. I kept track of application state (toggle state
+            and filtered (search) data) using React's useState hook. For the
+            cards and the grid itself, I used CSS grid for everything. The CSS
+            is all written inside the JSX within special style tags supplied by
+            Next.js. The style is my own version of neomorphism and I didn't use
+            any CSS libraries or frameworks. No endpoint of the jsonplaceholder
+            API had an 'author' field, so I supplied dummy author names,
+            generated randomly from a JSON list. Because I combined two project,
+            the interface won't look quite like either one.
+          </p>
         </div>
-        <h3>Project description</h3>
-        <div id="repo">
-          <a href="https://github.com/prokopious/assessment">
-            <div>Link to the code for this site.</div>
-          </a>
-        </div>
-        <p>
-          This is a combination of questions 3 and 4. I Made the API call to
-          jsonplaceholder using the Next.js getServersideProps API. It refreshes data on every request for up-to-date information,
-          but it can be somehwat slow. Static pages would be faster, but data changes would have to wait untli the next build. I filtered the original dataset
-          client-side and created a toggle button that hides any array item with
-          an index greater than 9 (from my card array) via the display property.
-          I kept track of application state (toggle state and filtered (search) data)
-          using React's useState hook. For the cards and the grid itself, I used
-          CSS grid for everything. The CSS is all written inside the JSX within
-          special style tags supplied by Next.js. The style is my own version of
-          neomorphism and I didn't use any CSS libraries or frameworks. No endpoint of the jsonplaceholder API had an 'author'
-          field, so I supplied dummy author names, generated randomly from a JSON list. Because I combined two project, the interface won't look quite like either one.
-        </p></div>
         <div id="gr">
           <h3>Photo Grid</h3>
           <div>
@@ -83,22 +84,7 @@ export default function Home({ data }) {
               let number
               toggle == true ? (number = 10) : (number = 50)
               if (i < number || number == null) {
-                return (
-                  <div id="card">
-                    <div id="grad"> </div>
-                    <div id="troika">
-                      <div id="info">
-                        <div>
-                          <h4 id="author">{random()}</h4>
-                        </div>
-                        <div id="title">{n.title}</div>
-                      </div>
-                      <div id="b">
-                        <AiOutlinePlusCircle />
-                      </div>
-                    </div>
-                  </div>
-                )
+                return <PhotoCard title={n.title} />
               } else return <></>
             })}
           </div>
